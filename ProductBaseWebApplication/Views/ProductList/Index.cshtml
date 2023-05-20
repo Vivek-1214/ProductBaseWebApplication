@@ -1,0 +1,66 @@
+﻿@model List<ProductListVM>
+
+<html>
+<head>
+    <title>Index Page</title>
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-image: url(https://imgs.search.brave.com/86hWfWiRmnaDXynt-xOQQcUGT1BmO1Nf4iZmAfNwYJk/rs:fit:759:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC42/T2xNLTM2eEVUNExN/elB5VVpLd21BSGFF/byZwaWQ9QXBp);
+        }
+
+        a:hover {
+            color: greenyellow;
+            background-color: aliceblue;
+        }
+
+        button:hover {
+            width: 7rem;
+            height: 3rem;
+        }
+
+        footer {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align:center; background-color: white; margin-top:5rem;">Product List</h1>
+    <table class="table table-striped" style="background-color: white;">
+
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Color</th>
+                <th scope="col">Prices</th>
+
+            </tr>
+        </thead>
+        <tbody scope="row">
+            @foreach (var Product in Model)
+            {
+                <tr scope="row">
+
+                    <td>@Product.Id</td>
+                    <td>@Product.Name</td>
+                    <td>@Product.Color</td>
+                    <td>@Product.Prices</td>
+                    <td> <a style="text-decoration:none;color:red" asp-controller="ProductList" asp-action="Delete" asp-route-Id="@Product.Id">DeleteProduct</a></td>
+                    <td><a style="text-decoration:none;color:red" asp-controller="ProductList" asp-action="Edit" asp-route-Id="@Product.Id">Edit Product</a></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button style="text-align:center;  margin-left: 30rem;"><a style="text-decoration:none;color:black" asp-controller="ProductList" asp-action="Add">Add Product</a></button>
+</body>
+<br />
+<footer>
+</footer>
+</html>
+
+
